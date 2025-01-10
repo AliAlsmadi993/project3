@@ -79,11 +79,8 @@ body {
 
 .slider-container {
     position: relative;
-    width: 90%;
-    max-width: 100%;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 .slider {
@@ -92,11 +89,19 @@ body {
 }
 
 .slide {
+    background-color: #054385d5;
+    color: #f4f4f4;
     min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
+    flex-shrink: 0;
+    display: none; /* إخفاء الشرائح الأخرى */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: #333;
+}
+
+.slide.active {
+    display: flex; /* عرض الشريحة النشطة فقط */
+    flex-direction: column;
 }
 
 .slide h2 {
