@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #007BFF, #80D0FF);
+            background: linear-gradient(135deg, #4A90E2, #2100a4);
             color: #333;
             font-family: 'Roboto', sans-serif;
             transition: background-color 0.5s, color 0.5s;
@@ -144,6 +144,55 @@
             margin-top: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff, #E3F2FD);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        body.dark-mode .modal-content {
+            background: linear-gradient(135deg, #2a2a2a, #1e1e1e);
+            color: #ffffff;
+        }
+        .modal-content p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        .modal-content .yes-btn {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .modal-content .yes-btn:hover {
+            background-color: #0056b3;
+        }
+        body.dark-mode .modal-content .yes-btn {
+            background-color: #FFA500;
+            color: #121212;
+        }
     </style>
 </head>
 <body>
@@ -162,6 +211,13 @@
         </div>
     </div>
 
+    <div class="modal" id="submit-modal">
+        <div class="modal-content">
+            <p>Are you sure you want to submit the test?</p>
+            <button class="yes-btn">Submit</button>
+        </div>
+    </div>
+
     <script>
         let currentQuestionIndex = 0;
         let answers = [];
@@ -175,7 +231,8 @@
         const progressInfo = document.getElementById("progress-info");
         const darkModeToggle = document.getElementById("darkModeToggle");
         const testTitle = document.getElementById("test-title");
-        const testPolicy = document.getElementById("test-policy");
+        const submitModal = document.getElementById("submit-modal");
+        const yesButton = submitModal.querySelector(".yes-btn");
 
         const testType = localStorage.getItem("currentTest") || "iq";
         const testPaths = {
@@ -190,15 +247,8 @@
             technical: "Technical Test - Quiz Platform"
         };
 
-        const testPolicies = {
-            iq: "This IQ test is timed for 15 minutes. Once you answer a question, you cannot return to it. Good luck!",
-            english: "This English test is timed for 15 minutes. Evaluate your English proficiency and understanding.",
-            technical: "This Technical test is timed for 15 minutes. Showcase your technical skills and knowledge."
-        };
-
         document.title = testTitles[testType];
         testTitle.textContent = testTitles[testType];
-        testPolicy.textContent = testPolicies[testType];
 
         const questions = [];
 
@@ -215,8 +265,7 @@
 
         function displayQuestion() {
             if (currentQuestionIndex >= questions.length) {
-                localStorage.setItem(`result_${testType}`, JSON.stringify(answers));
-                window.location.href = 'result.html';
+                showSubmitModal();
                 return;
             }
 
@@ -239,14 +288,29 @@
             document.querySelectorAll('.radio-input').forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     answers[currentQuestionIndex] = e.target.value;
-                    localStorage.setItem(`result_${testType}`, JSON.stringify(answers));
-
+                    localStorage.setItem(`answers_${testType}`, JSON.stringify(answers));
                     nextButton.disabled = false;
                 });
             });
 
-            nextButton.disabled = true;
+            if (currentQuestionIndex === questions.length - 1) {
+                nextButton.textContent = "Submit";
+                nextButton.addEventListener('click', showSubmitModal);
+            } else {
+                nextButton.textContent = "Next";
+                nextButton.disabled = true;
+            }
         }
+
+        function showSubmitModal() {
+            submitModal.style.display = "flex";
+            document.body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop"></div>');
+        }
+
+        yesButton.addEventListener('click', () => {
+            localStorage.setItem(`answers_${testType}`, JSON.stringify(answers));
+            window.location.href = `result.html?testType=${testType}`;
+        });
 
         nextButton.addEventListener('click', () => {
             currentQuestionIndex++;
@@ -263,8 +327,8 @@
                 if (remainingTime <= 0) {
                     clearInterval(timer);
                     alert('Time is up! Submitting your answers.');
-                    localStorage.setItem(`result_${testType}`, JSON.stringify(answers));
-                    window.location.href = 'result.html';
+                    localStorage.setItem(`answers_${testType}`, JSON.stringify(answers));
+                    window.location.href = `result.html?testType=${testType}`;
                 }
             }, 1000);
         }
