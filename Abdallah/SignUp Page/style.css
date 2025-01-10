@@ -1,0 +1,120 @@
+body,html{
+    margin: 0 20px;
+    padding: 0;
+}
+
+
+#SignUp_page{
+    border: 1px #1d8ec4 solid;
+    box-shadow: 1px 1px 15px #1d8ec4;
+    display: flex;
+    margin: 2%;
+    color: #1d8ec4;
+}
+
+
+#SignUp_page{
+    display: flex;
+    height: 100%;
+
+}
+
+
+
+
+#SignUp_side{
+
+    width: 50%;
+    font-family: "Inter", serif;
+    height: 100%;
+    position: relative;
+    left: 5%;
+
+
+}
+#SignUp_titel{
+    font-size:  x-large ;
+    font-weight: 600;
+}
+
+#SignUp_form{
+    display: flex;
+    flex-direction: column;
+}
+
+.input_field{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #1d8ec4 1px solid;
+    width: 80%;
+    margin-top: 1%;
+}
+.message{
+    color: red;
+}
+
+label{
+    margin-top: 4%;
+
+
+}
+
+#SignUp_btn{
+    display: inline;
+    border: none;
+    width: 20%;
+    height: 50px;
+    border-radius: 50px;
+    background-color:#1d8ec4;
+    color: white;
+
+}
+#login_link{
+    display: inline;
+}
+#login_link a{
+
+    font-style: normal;
+    color: #1d8ec4;
+    text-decoration: none;
+    font-weight: bold;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#SignUp_img_side{
+    background-color: gray;
+    width: 55%;
+    margin: 0%;
+    height: 610px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
