@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
 
+    if (totalSlides === 0) {
+        console.error('No slides found. Ensure all slides have the class "slide".');
+        return;
+    }
+
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
+            slide.classList.toggle('active', i === index);
         });
     }
 
@@ -22,10 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide);
     }
 
-    // Auto-slide every 5 seconds
+    // أزرار التنقل
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // بدء السلايدر
+    showSlide(currentSlide);
+
+    // التبديل التلقائي
     let autoSlideInterval = setInterval(nextSlide, 5000);
 
-    // Pause auto-slide on hover
+    // الإيقاف عند تمرير الماوس
     const sliderContainer = document.querySelector('.slider-container');
     sliderContainer.addEventListener('mouseenter', () => {
         clearInterval(autoSlideInterval);
@@ -34,9 +43,4 @@ document.addEventListener('DOMContentLoaded', () => {
     sliderContainer.addEventListener('mouseleave', () => {
         autoSlideInterval = setInterval(nextSlide, 5000);
     });
-
-    window.nextSlide = nextSlide;
-    window.prevSlide = prevSlide;
-
-    showSlide(currentSlide);
 });

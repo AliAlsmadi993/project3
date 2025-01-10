@@ -33,12 +33,18 @@ body {
 }
 
 /* زر تسجيل الدخول */
+/* .custom-btn {
+    background-color: #FFFFFF !important;
+    color: #007BFF !important;
+    border: none !important;
+} */
 .custom-btn {
     background-color: #FFFFFF !important;
     color: #007BFF !important;
     border: none !important;
-    margin-right: 50px !important;
+    margin-right: 50px !important; /* إضافة هذه السطر */
 }
+
 
 .custom-btn:hover {
     background-color: #D1ECF1 !important;
@@ -66,21 +72,15 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
-    background-image: url("codcom1.jpg"); /* صورة الخلفية */
+    background-image: url("logos/codcom2.jpeg");
     background-size: cover;
     background-position: center;
 }
 
 .slider-container {
     position: relative;
-    width: 90%;
-    max-width: 1000px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.5); /* خلفية شفافة فوق الصورة */
-    backdrop-filter: blur(5px); /* تأثير التعتيم */
-    padding: 20px;
+    width: 100%;
 }
 
 .slider {
@@ -89,16 +89,19 @@ body {
 }
 
 .slide {
+    background-color: #054385d5;
+    color: #f4f4f4;
     min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
+    flex-shrink: 0;
+    display: none; /* إخفاء الشرائح الأخرى */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: #D1ECF1; /* لون النص */
-    display: none; /* إخفاء السلايدز */
 }
 
 .slide.active {
-    display: block; /* إظهار السلايد النشط */
+    display: flex; /* عرض الشريحة النشطة فقط */
+    flex-direction: column;
 }
 
 .slide h2 {
@@ -131,12 +134,12 @@ button:hover {
 
 .prev {
     left: 10px;
-    background-color: #054385d5;
+    background-color: #054385d5
 }
 
 .next {
     right: 10px;
-    background-color: #054385d5;
+    background-color: #054385d5
 }
 
 /* استعلامات الوسائط لجعل الصفحة متجاوبة */
