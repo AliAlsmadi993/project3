@@ -1,0 +1,259 @@
+/* عام */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* شريط التنقل */
+.custom-navbar {
+    background-color: #007BFF;
+    color: #FFFFFF;
+}
+
+.custom-brand {
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+
+.custom-brand:hover {
+    color: #D1ECF1 !important;
+}
+
+.custom-link {
+    color: #FFFFFF !important;
+}
+
+.custom-link:hover {
+    color: #D1ECF1 !important;
+}
+
+.custom-link.active {
+    color: #0056b3 !important;
+    font-weight: bold;
+}
+
+/* زر تسجيل الدخول */
+.custom-btn {
+    background-color: #FFFFFF !important;
+    color: #007BFF !important;
+    border: none !important;
+    margin-right: 50px !important;
+}
+
+.custom-btn:hover {
+    background-color: #D1ECF1 !important;
+    color: #0056b3 !important;
+    border: 1px solid #007BFF !important;
+}
+
+/* تخصيص زر الـ navbar-toggler */
+.navbar-toggler {
+    background-color: #FFFFFF !important;
+    border: none !important;
+}
+
+.navbar-toggler-icon {
+    background-color: #007BFF !important;
+}
+
+/* Contact Us Section */
+.contact-us {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    background-image: url(logos/codcom3.jpeg) ;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    color: #fff !important;
+}
+#ContactUsHeader{
+    margin-top: 19%;
+    height: 100%;
+    width: 100%;
+    background-color:#000d1aa8;
+   
+}
+
+.contact-us h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-us p {
+    text-align: center;
+    color: #666;
+}
+/* عام */
+.contact-content {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    flex: 1;
+    color: #fff; /* تغيير لون النص إلى الأبيض */
+    text-align: center; /* محاذاة النص إلى الوسط */
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #f0f0f0; /* لون نص فاتح */
+    line-height: 1.6;
+}
+
+.info-box {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* محاذاة العناصر إلى الوسط */
+}
+
+.info-box i {
+    font-size: 24px;
+    color: #fff; /* لون الأيقونات أبيض */
+    margin-bottom: 10px;
+}
+
+.info-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff; /* لون العنوان أبيض */
+}
+
+.info-box p {
+    color: #f0f0f0; /* لون النص فاتح */
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff; /* لون العنوان أبيض */
+}
+
+.social-media a {
+    color: #fff; /* لون الأيقونات أبيض */
+    margin-right: 15px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #f0f0f0; /* لون الأيقونات فاتح عند التمرير */
+}
+
+/* بطاقة نموذج الاتصال */
+.contact-form-card {
+    flex: 1;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.btn-submit {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Map Section */
+.map-section {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.map-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+}
+
+footer h5 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+footer p, footer ul {
+    color: #ccc;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #fff;
+}
