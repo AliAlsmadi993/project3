@@ -6,41 +6,6 @@ const password_input = document.getElementById("password_input")
 
 
 
-// email_input.addEventListener("input", function () {
-    
-
-//     const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-//     if (!regexEmail.test(email_input.value) && !email_input.value == "") {
-//         let email_message_validate = document.getElementById("email_message_validate")
-//         email_message_validate.innerHTML = "Invalid email address."
-        
-//     } else{
-//         let email_message_validate = document.getElementById("email_message_validate")
-//         email_message_validate.innerHTML = ""
-        
-//     }
-    
-//     })
-
-
-
-// password_input.addEventListener("input", function () {
-    
-
-//     const regexEmail = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/
-//     if (!regexEmail.test(password_input.value) && !password_input.value == "") {
-//         let password_message_validate = document.getElementById("password_message_validate")
-//         password_message_validate.innerHTML = "Password must have 8+ chars, 1 uppercase, 1 number, 1 special char."
-        
-//     } else {
-
-//       let password_message_validate = document.getElementById("password_message_validate")
-//         password_message_validate.innerHTML = ""
-        
-//     }
-    
-//     })
-
 
 
 

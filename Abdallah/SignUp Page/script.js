@@ -1,5 +1,4 @@
 
-// debugger;
 
 const userName_input = document.getElementById("userName_input")
 const email_input = document.getElementById("email_input")
