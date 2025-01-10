@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Test - Quiz Platform</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #007BFF, #80D0FF);
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        body.dark-mode {
+            background: linear-gradient(135deg, #121212, #323232);
+            color: #ffffff;
+        }
+        .test-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            position: relative;
+            transition: background-color 0.5s, box-shadow 0.5s;
+            animation: fade-in 1s ease-in-out;
+        }
+        body.dark-mode .test-container {
+            background: #1e1e1e;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .header h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        body.dark-mode .header h2 {
+            color: #FFA500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .timer {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #000000;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        body.dark-mode .timer {
+            color: #FFA500;
+        }
+        .progress-info {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #0056b3;
+            font-weight: bold;
+        }
+        .question {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            user-select: none;
+            color: #333;
+        }
+        body.dark-mode .question {
+            color: #ffffff;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 15px;
+        }
+        .option-btn {
+            display: flex;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            animation: fade-in 0.5s ease-in-out;
+        }
+        .option-btn:hover {
+            border-color: #007BFF;
+            background: #e9f7ff;
+        }
+        body.dark-mode .option-btn {
+            background: #2a2a2a;
+        }
+        body.dark-mode .option-btn:hover {
+            border-color: #FFA500;
+            background: #333333;
+        }
+        .radio-input {
+            margin-right: 15px;
+        }
+        .btn {
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        body.dark-mode .btn {
+            background-color: #FFA500;
+            color: #121212;
+        }
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .navigation {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .policy {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 id="test-title">Test - Quiz Platform</h2>
+        <p class="policy" id="test-policy">This test is timed for 15 minutes. Once you answer a question, you cannot return to it. Good luck!</p>
+    </div>
+    <button class="btn" id="darkModeToggle">Toggle Dark Mode</button>
+    <div class="test-container">
+        <div class="timer" id="timer">15:00</div>
+        <div class="progress-info" id="progress-info">Question 1 of 10</div>
+        <h2 class="question" id="question">Loading...</h2>
+        <ul class="options" id="options"></ul>
+        <div class="navigation">
+            <button id="next-btn" class="btn" disabled>Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestionIndex = 0;
+        let answers = [];
+        let timer;
+        let remainingTime = 15 * 60; // 15 minutes
+
+        const questionContainer = document.getElementById("question");
+        const optionsContainer = document.getElementById("options");
+        const nextButton = document.getElementById("next-btn");
+        const timerDisplay = document.getElementById("timer");
+        const progressInfo = document.getElementById("progress-info");
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const testTitle = document.getElementById("test-title");
+        const testPolicy = document.getElementById("test-policy");
+
+        const testType = localStorage.getItem("currentTest") || "iq";
+        const testPaths = {
+            iq: "data/iq.json",
+            english: "data/english.json",
+            technical: "data/technical.json"
+        };
+
+        const testTitles = {
+            iq: "IQ Test - Quiz Platform",
+            english: "English Test - Quiz Platform",
+            technical: "Technical Test - Quiz Platform"
+        };
+
+        const testPolicies = {
+            iq: "This IQ test is timed for 15 minutes. Once you answer a question, you cannot return to it. Good luck!",
+            english: "This English test is timed for 15 minutes. Evaluate your English proficiency and understanding.",
+            technical: "This Technical test is timed for 15 minutes. Showcase your technical skills and knowledge."
+        };
+
+        document.title = testTitles[testType];
+        testTitle.textContent = testTitles[testType];
+        testPolicy.textContent = testPolicies[testType];
+
+        const questions = [];
+
+        fetch(testPaths[testType])
+            .then(response => response.json())
+            .then(data => {
+                questions.push(...data);
+                displayQuestion();
+            })
+            .catch(error => {
+                console.error("Error loading questions:", error);
+                alert("Failed to load questions. Please try again later.");
+            });
+
+        function displayQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                localStorage.setItem(`result_${testType}`, JSON.stringify(answers));
+                window.location.href = 'result.html';
+                return;
+            }
+
+            const question = questions[currentQuestionIndex];
+            questionContainer.textContent = question.question;
+            progressInfo.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach((option) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <label class="option-btn">
+                        <input type="radio" name="option" class="radio-input" value="${option}">
+                        <span>${option}</span>
+                    </label>
+                `;
+                optionsContainer.appendChild(li);
+            });
+
+            document.querySelectorAll('.radio-input').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    answers[currentQuestionIndex] = e.target.value;
+                    localStorage.setItem(`result_${testType}`, JSON.stringify(answers));
+
+                    nextButton.disabled = false;
+                });
+            });
+
+            nextButton.disabled = true;
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentQuestionIndex++;
+            displayQuestion();
+        });
+
+        function startTimer() {
+            timer = setInterval(() => {
+                remainingTime--;
+                const minutes = Math.floor(remainingTime / 60);
+                const seconds = remainingTime % 60;
+                timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (remainingTime <= 0) {
+                    clearInterval(timer);
+                    alert('Time is up! Submitting your answers.');
+                    localStorage.setItem(`result_${testType}`, JSON.stringify(answers));
+                    window.location.href = 'result.html';
+                }
+            }, 1000);
+        }
+
+        startTimer();
+
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.test-container').classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
