@@ -14,6 +14,9 @@ body {
     color: #FFFFFF !important;
     font-weight: bold;
 }
+.theme-toggle{
+    margin-top: -254px;
+}
 
 .custom-brand:hover {
     color: #D1ECF1 !important;
@@ -72,7 +75,7 @@ body {
     align-items: center;
     height: 70vh;
     background-color: #f4f4f4;
-    background-image: url("logos/codcom2.jpeg");
+    background-image: url("/project3/logos/codcom2.jpeg");
     background-size: cover;
     background-position: center;
 }
@@ -353,6 +356,178 @@ button:hover {
     }
 
     button {
+        padding: 6px;
+        font-size: 1rem;
+    }
+}
+
+
+/* الوضع الداكن */
+
+/* عام */
+body.dark-mode {
+    background-color: #121212;
+    color: #FFFFFF;
+}
+
+/* شريط التنقل */
+body.dark-mode .custom-navbar {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+}
+
+body.dark-mode .custom-brand {
+    color: #FFD700 !important;
+}
+
+body.dark-mode .custom-brand:hover {
+    color: #FFFFE0 !important;
+}
+
+body.dark-mode .custom-link {
+    color: #FFD700 !important;
+}
+
+body.dark-mode .custom-link:hover {
+    color: #FFFFE0 !important;
+}
+
+body.dark-mode .custom-link.active {
+    color: #FFFF00 !important;
+}
+
+/* زر تسجيل الدخول */
+body.dark-mode .custom-btn {
+    background-color: #1F1F1F !important;
+    color: #FFD700 !important;
+    border: none !important;
+}
+
+body.dark-mode .custom-btn:hover {
+    background-color: #2A2A2A !important;
+    color: #FFFFE0 !important;
+    border: 1px solid #FFD700 !important;
+}
+
+/* السلايدر */
+body.dark-mode #aboutUs {
+    background-color: #1F1F1F;
+    color: #FFD700;
+}
+
+body.dark-mode .slider-container {
+    background-color: #1F1F1F;
+}
+
+body.dark-mode .slide {
+    background-color: #2A2A2A;
+    color: #FFD700;
+}
+
+body.dark-mode .slide h2 {
+    color: #FFD700;
+}
+
+body.dark-mode .slide p {
+    color: #CCCCCC;
+}
+
+body.dark-mode button {
+    background-color: rgba(255, 215, 0, 0.7);
+    color: #121212;
+}
+
+body.dark-mode button:hover {
+    background-color: rgba(255, 215, 0.9);
+}
+
+/* about me Section */
+body.dark-mode #company-details {
+    background-color: #1F1F1F;
+    color: #FFD700;
+}
+
+body.dark-mode #company-details h2 {
+    color: #FFD700;
+}
+
+body.dark-mode #company-details p {
+    color: #CCCCCC;
+}
+
+body.dark-mode #company-details ul li {
+    color: #CCCCCC;
+}
+
+body.dark-mode #company-details ul li strong {
+    color: #FFD700;
+}
+
+/* Why Choose Us Section */
+body.dark-mode #why-choose-us {
+    background-color: #1F1F1F;
+    color: #FFD700;
+}
+
+body.dark-mode #why-choose-us h2 {
+    color: #FFD700;
+}
+
+body.dark-mode #why-choose-us .feature {
+    background-color: #2A2A2A;
+    color: #FFD700;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #why-choose-us .feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode #why-choose-us .feature i {
+    color: #FFD700;
+}
+
+body.dark-mode #why-choose-us .feature h3 {
+    color: #FFD700;
+}
+
+body.dark-mode #why-choose-us .feature p {
+    color: #CCCCCC;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body.dark-mode #why-choose-us .feature {
+        max-width: 100%;
+    }
+
+    body.dark-mode .slide h2 {
+        font-size: 1.5rem;
+        color: #FFD700;
+    }
+
+    body.dark-mode .slide p {
+        font-size: 1rem;
+        color: #CCCCCC;
+    }
+
+    body.dark-mode button {
+        padding: 8px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body.dark-mode .slide h2 {
+        font-size: 1.2rem;
+    }
+
+    body.dark-mode .slide p {
+        font-size: 0.9rem;
+    }
+
+    body.dark-mode button {
         padding: 6px;
         font-size: 1rem;
     }

@@ -6,32 +6,37 @@ const answersTable = document.getElementById("answers-table").querySelector("tbo
 
 // Function to load and display test results
 function loadTestResults(testType) {
-    // مسارات ملفات JSON لكل اختبار
     const testFiles = {
         iq: "data/iq.json",
         english: "data/english.json",
-        technical: "data/technical.json"
+        technical: "data/technical.json",
     };
 
-    // تحميل بيانات الأسئلة الصحيحة من ملف JSON
     fetch(testFiles[testType])
-        .then(response => {
+        .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to load test data");
             }
             return response.json();
         })
-        .then(correctAnswers => {
-            // مسح الجدول والرسائل السابقة
+        .then((correctAnswers) => {
             answersTable.innerHTML = "";
             resultMessage.textContent = "";
-            showAnswersButton.style.display = "block";
-            answersTable.parentElement.style.display = "none";
+            showAnswersButton.style.display = "none"; // Hide Show Answers button initially
+            answersTable.parentElement.style.display = "none"; // Hide the table initially
 
-            // جلب إجابات المستخدم من localStorage
-            const answers = JSON.parse(localStorage.getItem(`answers_${testType}`)) || [];
+            // Retrieve user's answers from localStorage
+            const answers = JSON.parse(localStorage.getItem(`answers_${testType}`));
 
-            // حساب النتيجة
+            // Check if the user hasn't taken the test
+            if (!answers || answers.length === 0) {
+                resultMessage.textContent = "You have not taken this test yet.";
+                resultMessage.className = "score warning"; // Add a CSS class for warning
+                scoreElement.textContent = ""; // Clear the score display
+                return; // Stop further execution
+            }
+
+            // Calculate the score
             let score = 0;
             correctAnswers.forEach((item, index) => {
                 if (answers[index] === item.correctAnswer) {
@@ -39,10 +44,10 @@ function loadTestResults(testType) {
                 }
             });
 
-            // عرض النتيجة
+            // Display the score
             scoreElement.textContent = `Score: ${score}/${correctAnswers.length}`;
 
-            // عرض رسالة النجاح أو الفشل
+            // Display success or failure message
             if (score >= 5) {
                 resultMessage.textContent = "Congratulations! You passed the test.";
                 resultMessage.className = "score success";
@@ -51,14 +56,17 @@ function loadTestResults(testType) {
                 resultMessage.className = "score failure";
             }
 
-            // عرض الإجابات عند النقر على زر Show Answers
+            // Show answers when the user clicks "Show Answers"
+            showAnswersButton.style.display = "block";
             showAnswersButton.onclick = () => {
                 answersTable.parentElement.style.display = "table";
                 correctAnswers.forEach((item, index) => {
                     const row = document.createElement("tr");
                     row.innerHTML = `
                         <td>${item.question}</td>
-                        <td class="${answers[index] === item.correctAnswer ? 'correct' : 'incorrect'}">${answers[index] || "Not Answered"}</td>
+                        <td class="${
+                            answers[index] === item.correctAnswer ? "correct" : "incorrect"
+                        }">${answers[index] || "Not Answered"}</td>
                         <td>${item.correctAnswer}</td>
                     `;
                     answersTable.appendChild(row);
@@ -66,16 +74,17 @@ function loadTestResults(testType) {
                 showAnswersButton.style.display = "none";
             };
         })
-        .catch(error => {
+        .catch((error) => {
             console.error("Error loading test data:", error);
             resultMessage.textContent = "Failed to load test data. Please try again.";
         });
 }
 
 // Event listeners for test buttons
-document.querySelectorAll("#test-buttons .btn").forEach(button => {
+document.querySelectorAll("#test-buttons .btn-result").forEach((button) => {
     button.addEventListener("click", () => {
         const testType = button.getAttribute("data-test");
+        console.log("Loading test type:", testType); // Debugging
         loadTestResults(testType);
     });
 });

@@ -1,0 +1,467 @@
+/* عام */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* شريط التنقل */
+.custom-navbar {
+  background-color: #007BFF;
+  color: #FFFFFF;
+}
+
+.custom-brand {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.custom-brand:hover {
+  color: #D1ECF1;
+}
+
+.custom-link {
+  color: #FFFFFF;
+}
+
+.custom-link:hover {
+  color: #D1ECF1;
+}
+
+/* زر تسجيل الدخول */
+.custom-btn {
+  background-color: #FFFFFF;
+  color: #007BFF;
+  border: none;
+}
+
+.custom-btn:hover {
+  background-color: #D1ECF1;
+  color: #0056b3;
+  border: 1px solid #007BFF;
+}
+
+/* جعل رابط الصفحة النشطة بلون أزرق أغمق */
+.custom-link.active {
+  color: #0056b3 !important;
+  font-weight: bold;
+  /* لإبراز الرابط النشط */
+}
+
+/* تنسيق السكشينز الموجودة بال Home */
+#container {
+  color: #0056b3;
+  font-family: oswald;
+  font-size: x-large;
+  /* background-color: #D1ECF1; */
+}
+
+#container > header > p {
+  font-family: "Dancing Script";
+}
+
+#welcome {
+  /* كونتينر السيكشين الاول */
+  display: flex;
+}
+
+#wel-img {
+  width: 25%;
+  height: 25%;
+}
+
+#welcome > p {
+  margin: 40px 109px;
+}
+
+/* كلاس ل اضافة خط */
+.aguFont {
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.welImg {
+  /* الصورة الترحيبية */
+  border-radius: 51%;
+  width: 36%;
+  height: 3%;
+  box-shadow: 5px 5px 10px 10px #BCCCDC;
+  margin: -5% -5%;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.card-front {
+  background-color: #007BFF;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  border: 10px solid #007BFF;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: #eff2f3;
+  color: #007BFF;
+  display: flex;
+  align-items: center;
+  border: 10px solid #007BFF;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: small;
+  transform: rotateY(180deg);
+}
+
+.additional-card {
+  background-color: #007BFF;
+  color: #050505;
+  border: 10px solid #007BFF;
+  border-radius: 10px;
+  justify-content: center;
+  height: 250px;
+  width: 180px;
+}
+
+.card > div > div > p {
+  display: block;
+  height: 151px;
+  width: inherit;
+}
+
+.card-container {
+  display: flex;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  padding: 0px;
+}
+
+#NewCandidates {
+  /* كونتينر NewCandidates */
+  display: flex;
+  font-family: oswald;
+  font-size: x-large;
+}
+
+#NewCandidates > p {
+  background-color: aliceblue;
+  margin: auto;
+  margin-right: 20%;
+}
+
+/* كلاس ل اضافة خط */
+.aguFont {
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.NewCandidatesImg {
+  /* الصورة الترحيبية */
+  border-radius: 51%;
+  width: 36%;
+  height: 3%;
+  box-shadow: 5px 5px 10px 10px #BCCCDC;
+  margin: -5% -5%;
+}
+
+.oswald {
+  font-family: "Oswald", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+/* الأجهزة اللوحية (iPad) */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: medium;
+    padding: 10px;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* بطاقتين في الصف */
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card-inner {
+    height: 150px; /* تعديل الارتفاع */
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 18px; /* تقليل حجم النص */
+  }
+
+  #welcome,
+  #NewCandidates {
+    flex-direction: column; /* تحويل التخطيط إلى عمودي */
+    align-items: center;
+    text-align: center;
+  }
+
+  #welcome > p,
+  #NewCandidates > p {
+    font-size: medium;
+    margin: 10px 0;
+  }
+
+  .welImg,
+  .NewCandidatesImg {
+    width: 60%;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 3px 3px 7px 7px #BCCCDC;
+  }
+
+  .about-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about-image {
+    flex: 0 0 40%;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .about-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* الهواتف الذكية */
+@media only screen and (max-width: 427px) {
+  body {
+    font-size: small;
+    padding: 5px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr; /* بطاقة واحدة في الصف */
+    gap: 10px;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card-inner {
+    height: 120px; /* تعديل الارتفاع */
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 16px; /* تقليل حجم النص */
+  }
+
+  #welcome,
+  #NewCandidates {
+    flex-direction: column; /* تحويل التخطيط إلى عمودي */
+    align-items: center;
+    text-align: center;
+  }
+
+  #welcome > p,
+  #NewCandidates > p {
+    font-size: small;
+    margin: 5px 0;
+  }
+
+  .welImg,
+  .NewCandidatesImg {
+    width: 70%;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 2px 2px 5px 5px #BCCCDC;
+  }
+
+  .card-inner {
+    height: 100px; /* حجم أصغر للبطاقات */
+  }
+
+  footer {
+    font-size: small;
+    padding: 10px;
+  }
+
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .about-image {
+    width: 60%;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .about-text {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+
+/* الوضع الداكن */
+body.dark-mode {
+  background-color: #121212;
+  color: #FFFFFF;
+}
+body.dark-mode .custom-navbar {
+  background-color: #1F1F1F;
+  color: #FFFFFF;
+}
+
+body.dark-mode .custom-brand {
+  color: #FFD700;
+}
+
+body.dark-mode .custom-brand:hover {
+  color: #FFFFE0;
+}
+
+body.dark-mode .custom-link {
+  color: #FFD700;
+}
+
+body.dark-mode .custom-link:hover {
+  color: #FFFFE0;
+}
+
+body.dark-mode .custom-link.active {
+  color: #FFFF00 !important;
+  font-weight: bold;
+}
+
+body.dark-mode .custom-btn {
+  background-color: #1F1F1F;
+  color: #FFD700;
+}
+
+body.dark-mode .custom-btn:hover {
+  background-color: #2A2A2A;
+  color: #FFFFE0;
+  border: 1px solid #FFD700;
+}
+
+body.dark-mode #container {
+  color: #FFD700;
+}
+
+body.dark-mode #welcome {
+  background-color: #1F1F1F;
+}
+
+body.dark-mode #welcome > p {
+  color: #FFD700;
+}
+
+body.dark-mode .welImg {
+  box-shadow: 5px 5px 10px 10px #333333;
+}
+
+body.dark-mode .card-front {
+  background-color: #2A2A2A;
+  color: #FFD700;
+  border-color: #444444;
+}
+
+body.dark-mode .card-back {
+  background-color: #1F1F1F;
+  color: #FFD700;
+  border-color: #444444;
+}
+
+body.dark-mode .additional-card {
+  background-color: #2A2A2A;
+  color: #FFD700;
+  border-color: #444444;
+}
+
+body.dark-mode .card > div > div > p {
+  color: #FFD700;
+}
+
+body.dark-mode #NewCandidates {
+  background-color: #1F1F1F;
+}
+
+body.dark-mode #NewCandidates > p {
+  color: #FFD700;
+  background-color: #1F1F1F;
+  margin: auto;
+  margin-right: 20%;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(255, 215, 0, 0.5);
+}
+
+body.dark-mode #NewCandidates > p:hover {
+  background-color: #2A2A2A;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.7);
+}
+
+@media only screen and (max-width: 768px) {
+  body.dark-mode .welImg,
+  body.dark-mode .NewCandidatesImg {
+    box-shadow: 3px 3px 7px 7px #333333;
+  }
+}
+
+@media only screen and (max-width: 427px) {
+  body.dark-mode .welImg,
+  body.dark-mode .NewCandidatesImg {
+    box-shadow: 2px 2px 5px 5px #333333;
+  }
+}

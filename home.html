@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navbar Example</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="home.CSS">
+  <link rel="stylesheet" href="/project3/style/home.CSS">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,10 @@
                     <a class="nav-link active custom-link" aria-current="page" href="home.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link custom-link" href="\adnan\apply-test.html">Apply tests</a>
+                    <a class="nav-link custom-link" href="apply-test.html">Apply tests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="result.html">Result</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link custom-link" href="aboutUs.HTml">About Us</a>
@@ -38,6 +41,7 @@
                 <li class="nav-item">
                     <a class="nav-link custom-link" href="contactUs.html">Contact Us</a>
                 </li>
+                
                 <li class="nav-item">
                   <a class="nav-link  custom-link" style="background-color: #0056b3; border: 2px rgba(255, 255, 255, 0.548) solid;" href="#">Login</a>
               </li>
@@ -47,6 +51,8 @@
     </div>
 </nav>
 
+
+  <button id="theme-toggle" class="btn btn-secondary ms-3">🌙</button>
 
   <div class="container" id="container">
     <header class="my-5 text-center">
@@ -64,7 +70,7 @@
         provide the tools and resources to connect you with the right opportunities.</p>
     </section>
 
-    <section id="Services" style="background-color: #ffffff " class="container">
+    <section id="Services"  class="container">
       <br><br><br>
       <h3 style="text-align: center; ">Our Services</h3> <br><br><br><br>
 
@@ -114,7 +120,7 @@
       <h2>Welcome to New Candidates</h2><br>
       <div id="NewCandidates">
 
-        <p style="background-color: aliceblue; display: inline;">
+        <p >
           At <b>CodCom, </b>we believe in providing fair and challenging assessments to help you showcase your
           abilities. Whether you are looking to apply for a new job or just testing your skills,
           our quizzes are designed to give you an accurate measure of your knowledge and capabilities. We wish you the
@@ -158,6 +164,8 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/theme.js"></script>
+
 </body>
 
 </html>
