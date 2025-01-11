@@ -227,3 +227,134 @@ body.dark-mode .btn {
         font-size: 1rem;
     }
 }
+
+
+
+/* الوضع الداكن */
+
+/* عام */
+body.dark-mode {
+    background: linear-gradient(135deg, #121212, #323232);
+    color: #FFFFFF;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* شريط التنقل */
+body.dark-mode .custom-navbar {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+}
+
+body.dark-mode .custom-brand {
+    color: #FFA500 !important;
+}
+
+body.dark-mode .custom-brand:hover {
+    color: #FFD700 !important;
+}
+
+body.dark-mode .custom-link {
+    color: #FFA500 !important;
+}
+
+body.dark-mode .custom-link:hover {
+    color: #FFD700 !important;
+}
+
+body.dark-mode .custom-link.active {
+    color: #FFFF00 !important;
+}
+
+/* زر تسجيل الدخول */
+body.dark-mode .custom-btn {
+    background-color: #1F1F1F !important;
+    color: #FFA500 !important;
+    border: none !important;
+}
+
+body.dark-mode .custom-btn:hover {
+    background-color: #2A2A2A !important;
+    color: #FFD700 !important;
+    border: 1px solid #FFA500 !important;
+}
+
+/* الحاوية */
+body.dark-mode #container {
+    background: rgba(40, 40, 40, 0.95);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* العناوين */
+body.dark-mode .header h1 {
+    color: #FFA500;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* الجدول */
+body.dark-mode table th {
+    background-color: #FFA500;
+    color: #121212;
+}
+
+body.dark-mode table tr:nth-child(even) {
+    background-color: #2E2E2E;
+}
+
+body.dark-mode table td.correct {
+    color: #28A745;
+}
+
+body.dark-mode table td.incorrect {
+    color: #DC3545;
+}
+
+/* الأزرار */
+body.dark-mode .btn-result {
+    background-color: #FFA500;
+    color: #121212;
+}
+
+body.dark-mode .btn-result:hover {
+    background-color: #FFD700;
+    color: #121212;
+}
+
+/* التدرج */
+body.dark-mode .score {
+    color: #FFD700;
+}
+
+/* الرسوم المتحركة */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* التصميم المستجيب */
+@media (max-width: 768px) {
+    body.dark-mode .header h1 {
+        font-size: 2.2rem;
+    }
+
+    body.dark-mode .score {
+        font-size: 1.4rem;
+    }
+
+    body.dark-mode table th,
+    body.dark-mode table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    body.dark-mode .btn-result {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
