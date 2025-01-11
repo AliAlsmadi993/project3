@@ -25,7 +25,7 @@
        
        <div class="Name">
            <div class="Field">
-       <label>First Name:</label><br>
+       <label>Name:</label><br>
        <input type="text" name="FirstName" id="firstname" value="" readonly>
        <p id="pFirstName" class="error"></p>
    </div>
@@ -72,8 +72,8 @@ if (!loggedInUser) {
     // Pre-fill form
     document.getElementById('firstname').value = loggedInUser.name;
     document.getElementById('email').value = loggedInUser.email;
-    document.getElementById('phone').value = loggedInUser.phone;
-    document.getElementById('country').value = loggedInUser.country;
+    document.getElementById('phone').value = loggedInUser.phone||" ";
+    document.getElementById('country').value = loggedInUser.country|| " ";
     if (loggedInUser.img) {
         document.getElementById("userImg").src = loggedInUser.img;
     }

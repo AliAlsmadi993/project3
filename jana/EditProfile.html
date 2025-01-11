@@ -10,55 +10,41 @@
 <body>
     <div class="container">
         <div class="Leftside">
-            <img src="Profile.jpg" id="userImg">
-            <label for="photo-input">Update Photo </label>
+            <img src="Profile.jpg" id="userImg" alt="User Image">
+            <label for="photo-input">Update Photo</label>
             <input type="file" id="photo-input" accept="image/*" />
             <div style="display: flex;align-items: center;gap: 8px; ">
-            <i class="fa-duotone fa-solid fa-award"></i>
-            <h4>Scors</h4>
+                <i class="fa-duotone fa-solid fa-award"></i>
+                <h4>Scors</h4>
+            </div>
         </div>
-         </div>
-         <div class="Rightside">
-           <h3 >User Profile</h3>
-          <form id="Editform">
-           
-           <div class="Name">
-               <div class="Field">
-           <label>First Name:</label><br>
-           <input type="text" name="FirstName" id="firstname" >
-           <p id="pFirstName" class="error"></p>
-       </div>
-                <!-- <div class="Field">
-           <label>Last Name:</label><br>
-           <input type="text" name="LasttName" id="lastname" >
-           <p id="pLastName" class="error"></p>
-       </div> -->
-       </div>
-         
-       <div class="Field">
-           <label>Email:</label>
-           <input type="text" name="Email" id="email" >
-           <p id="pEmail" class="error"></p>
-       </div> 
-       
-       <div class="Field">
-           <label>Contact Number:</label>
-           <input type="text" name="Phone" id="phone">
-           <p id="pConfirmNumber" class="error"></p>
-       </div> 
-    
-       <div class="Field">
-           <label>Country:</label>
-           <input type="text" name="Country" id="country">
-       </div> 
-         
-         <button id="editInfo" class="button">Save</button>
-          </form>
-         </div>
-   
-   
-       </div>
-   
+        <div class="Rightside">
+            <h3>User Profile</h3>
+            <form id="Editform">
+                <div class="Field">
+                    <label for="firstname">Name:</label>
+                    <input type="text" name="FirstName" id="firstname">
+                    <p id="pFirstName" class="error"></p>
+                </div>
+                <div class="Field">
+                    <label for="email">Email:</label>
+                    <input type="text" name="Email" id="email">
+                    <p id="pEmail" class="error"></p>
+                </div>
+                <div class="Field">
+                    <label for="phone">Contact Number:</label>
+                    <input type="text" name="Phone" id="phone">
+                    <p id="pConfirmNumber" class="error"></p>
+                </div>
+                <div class="Field">
+                    <label for="country">Country:</label>
+                    <input type="text" name="Country" id="country">
+                </div>
+                <button id="editInfo" class="button">Save</button>
+            </form>
+        </div>
+    </div>
+
        
        <script>
         const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
