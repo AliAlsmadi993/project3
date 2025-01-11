@@ -1,0 +1,127 @@
+
+@media screen and (max-width: 426px) {
+  .container{
+    width: 100%;
+
+  }
+  .Leftside img {
+      
+   width:102px;
+   height: 102px;
+  margin-left: 0px;
+  }
+ 
+  .Field input {
+  
+    width:200px;
+  }
+  .Leftside {
+    width:22%;
+  }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:linear-gradient(to right, #007bff, #ffffff);;
+  }
+  .container{
+      display: flex;
+      flex-direction: row;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 50%;
+    height: 650px;
+  }
+  
+  .Rightside h3{
+      margin-top: 50px;
+      margin-left: 20px;
+      margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+  }
+  .Leftside {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    /* justify-content: center; */
+    width: 30%;
+  }
+  .Leftside img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    /* margin-left: 25%; */
+    margin-top: 20px;
+  }
+  .Leftside label{
+    display: block;
+    width: 100px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 9px;
+    margin: 20px auto ;
+    border-radius:5px ;
+    cursor: pointer;
+  }
+  .Leftside input{
+    display: none;
+  }
+  .Name{
+      display: flex;
+      gap: 10px;
+      margin-top: 40px;
+  }
+  .Field{
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      margin-top: 20px;
+      
+  }
+  .Field input{
+      padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    width:338px;
+  }
+  .button{
+      display: block;
+    width: 50%;
+    margin-left:25% ;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-left: 10px;
+    display: inline;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

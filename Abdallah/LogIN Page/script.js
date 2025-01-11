@@ -27,7 +27,7 @@ const password_input = document.getElementById("password_input")
         if (user) {
             alert(`Welcome, ${user.name}!`);
             // Save logged-in state to session storage
-            sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
             
         } else {
             alert('Invalid email or password!');
