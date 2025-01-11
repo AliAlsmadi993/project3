@@ -1,4 +1,4 @@
-body,html{
+body{
     margin: 0 20px;
     padding: 0;
 }
@@ -109,6 +109,32 @@ label{
 }
 
 
+
+
+@media (max-width: 426px){
+
+    body{
+        display: flex;
+        justify-content: center;
+    }
+
+    #SignUp_img_side{
+        display: none;
+    }
+    #SignUp_page{
+        justify-content: center;
+        height: 515px;
+        width: 100%;
+        margin-top: 12%;
+        }
+    #SignUp_side{
+        width: 100%;
+    }
+    #SignUp_btn{
+        width: 30%;
+    }
+
+}
 
 
 
